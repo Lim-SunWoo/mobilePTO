@@ -87,6 +87,19 @@ h2 {
     text-align: center;
     text-decoration: none;
 }
+.button-half {
+    width: 48%;
+    display: block;
+    padding: 12px;
+    margin: 15px 0 15px 0;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+}
 input[type="text"], input[type="date"], input[type="time"], select {
     width: calc(100% - 22px);
     padding: 10px;
