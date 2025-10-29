@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/@mobiscroll/jquery@5.35.0/dist/css/mobiscroll.jquery.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Request PTO</title>
+</head>
+<body>
+    <script src="menu.js"></script>
+    <div id="sideMenu" class="side-menu">
+        <div id="sideMenuContent">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+            <a href="index.html">My PTO Summary</a> 
+            <a href="PTOManagement.html">PTO Management</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="menu-icon" onclick="openNav()">☰</div>
+        Request PTO
+    </header>
+
+    <div class="container">
+        <form>
+            <div class="card">
+                <h2>Select PTO Duration</h2>
+                <div class="row" style="align-items: center;">
+                    <label style="flex: 1;"><input type="radio" name="ptoType" value="days" checked>Days</label>
+                    <label style="flex: 1;"><input type="radio" name="ptoType" value="hours">Hours</label>
+                </div>
+
+                <div id="dateInputs">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date">
+
+                    <label for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date">
+                </div>
+
+                <div id="timeInputs" style="display:none;">
+                    <label for="start_time">Start Time</label>
+                    <input type="time" id="start_time" name="start_time">
+
+                    <label for="end_time">End Time</label>
+                    <input type="time" id="end_time" name="end_time">
+                </div>
+                
+                <label for="location">Workplace / Destination</label>
+                <input type="text" id="location" name="location" placeholder="e.g., HQ Office / Jeju Island">
+
+                <label for="reason">Reason</label>
+                <input type="text" id="reason" name="reason" placeholder="e.g., Family event or personal matter">
+            </div>
+
+            <div class="result_row card">
+                <p>
+                    <span style="font-size: x-small;">Used PTO</span><br/>
+                    <span style="font-weight: bolder; font-size: larger;">00D 00H</span>
+                </p>
+                <p>></p>
+                <p>
+                    <span style="font-size: x-small;">Remaining PTO</span><br/>
+                    <span style="font-weight: bolder; font-size: larger;">00D 00H</span>
+                </p>
+            </div>
+
+            <button type="submit" class="button" style="background-color: #007bff;">Submit Request</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mobiscroll/jquery@5.35.0/dist/js/mobiscroll.jquery.min.js"></script>
+    <script>
+        $(function () {
+            // Mobiscroll Global Options (English, iOS Theme)
+            mobiscroll.setOptions({
+                locale: mobiscroll.localeEn,
+                theme: 'ios',
+                themeVariant: 'light'
+            });
+
+            // Datepicker setup (for future range selection)
+            $('#pto_date_range').mobiscroll().datepicker({
+                controls: ['calendar'], 
+                select: 'range',
+                display: 'center',
+                rangeEndInvalid: true
+            });
+        });
+    </script>
+
+    <script src="menu.js"></script>
+</body>
+</html>
