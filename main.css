@@ -1,304 +1,438 @@
-/* Mobile-First 기본 스타일 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    padding: 15px;
-}
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    /* position: relative; 추가하여 .menu-icon의 기준 위치 설정 */
-    position: relative;
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-h2 {
-    color: #007bff;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-    margin-top: 20px;
-}
-.menu-icon {
-    position: absolute; /* header 내에서 절대 위치 */
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    font-size: 1.5em; /* 햄버거 아이콘 크기 */
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-}
-.side-menu {
-    height: 100%;
-    width: 0; /* 초기에는 숨김 */
-    position: fixed;
-    z-index: 20; /* 다른 요소보다 위에 표시 */
-    top: 0;
-    left: 0;
-    background-color: #333;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-}
-.side-menu a {
-    padding: 15px 15px 15px 30px;
-    text-decoration: none;
-    font-size: 1.1em;
-    color: #f1f1f1;
-    display: block;
-    transition: 0.3s;
-}
-.side-menu a:hover {
-    background-color: #575757;
-}
-.side-menu .close-btn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    color: white;
-}
-.button {
-    width: 100%;
-    display: block;
-    padding: 12px;
-    margin: 15px 0 15px 0;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    text-align: center;
-    text-decoration: none;
-}
-.button-half {
-    width: 48%;
-    display: block;
-    padding: 12px;
-    margin: 15px 0 15px 0;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    text-align: center;
-    text-decoration: none;
-}
-input[type="text"], input[type="date"], input[type="time"], select {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-.highlight {
-    color: #dc3545;
-    font-weight: bold;
-}
-.row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-.col-half {
-    flex: 1;
-    padding-right: 5px;
-}
-.col-half:last-child {
-    padding-right: 0;
-    padding-left: 5px;
-}
-.result_row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    align-items: center;
-}
-.result_row > p {
-    margin: 0 20px 0 20px;
-}
-.tab-container {
-    display: flex;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 15px;
-}
-
-.tab-button {
-    flex: 1;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: bold;
-    color: #555;
-    background-color: #f9f9f9;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.tab-button:hover {
-    background-color: #e9ecef;
-}
-
-.tab-button.active {
-    background-color: white;
-    border-bottom: 3px solid #007bff;
-    color: #007bff;
-}
-
-/* ---------- Tab Content ---------- */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-/*  request item */
-
-/* ----- 요청 카드 정렬 ----- */
-.request-item,
-.approved-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.card {
-    background-color: white;
-    padding: 10px 15px 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-}
-.card .detail {
-    margin: 1px 0 0 0;
-}
-.request-item > .card-details > p:first-child,
-.approved-item > .card-details > p:first-child {
-    font-weight: bold;
-}
-.card-details > p:not(:first-child){
-    margin-top: 5px;
-    font-size: 0.9em;;
-}
-.action-button-container {
-    flex-shrink: 0;
-    text-align: right;
-}
-.action-button-container .button {
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 0.9em;
-    font-weight: bold;
-    width: 100px;
-}
-.remaining-pto-card {
-    text-align: center;
-}
-
-.remaining-pto-card h2 {
-    color: #007bff;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.pto-value {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-    letter-spacing: 2px;
-}
-.pto-value .days {
-    color: #007bff;
-}
-
-.pto-value .hours {
-    color: #28a745;
-}
-
-.pto-value .label {
-    font-size: 0.6em;
-    margin-left: 3px;
-    color: #555;
-}
-
-
-body 
+/* =========================================================
+   GLOBAL BASE
+========================================================= */
+body
 {
-    font-family: Arial, sans-serif;
-    background-color: #f7f8fa;
-}
-.calendar-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 360px;
-    margin: 0 auto;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f7f9fc;
+	color: #333;
+	font-size: 14px;
 }
 
-.calendar-header {
-    text-align: center;
-    color: #007bff;
-    font-size: 1.4em;
-    font-weight: bold;
-    margin-bottom: 10px;
+body, input, select, button, label, p, h1, h2, h3
+{
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	color: #333;
 }
 
-.calendar-header small {
-    display: block;
-    color: #777;
-    font-size: 0.9em;
-    font-weight: normal;
+.container
+{
+	padding: 15px;
 }
 
-table.calendar {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    font-size: 0.95em;
-    table-layout: fixed; /* ✅ 각 칸 동일 너비 */
+/* =========================================================
+   HEADER + MENU
+========================================================= */
+header
+{
+	height: 40px;
+	background: #415771;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 10px;
+	position: relative;
+	box-sizing: border-box;
 }
 
-.calendar th {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 0;
+.menu-icon
+{
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	cursor: pointer;
+	color: #ffffff;
 }
 
-.calendar td {
-    padding: 10px 0;
-    border: 1px solid #eee;
-    height: 30px;
-    width: 14.28%; /* ✅ 7열 균등 분배 */
-    vertical-align: middle;
+/* Side Menu */
+.side-menu
+{
+	height: 100%;
+	width: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	background-color: #333;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	box-shadow: 2px 0 5px rgba(0,0,0,0.5);
 }
 
-/* ✅ 12일 하이라이트만 */
-.highlight-day {
-    background-color: #fff6c4; /* 부드러운 노란색 */
-    font-weight: bold;
-    color: #444;
+	.side-menu a
+	{
+		padding: 15px 30px;
+		display: block;
+		font-size: 1.1em;
+		color: #f1f1f1;
+		text-decoration: none;
+		transition: 0.3s;
+	}
+
+		.side-menu a:hover
+		{
+			background-color: #575757;
+		}
+
+	.side-menu .close-btn
+	{
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		color: white;
+	}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+h2
+{
+	color: #415771;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 5px;
+}
+
+.highlight,
+.highlight-day,
+.selected,
+.selected-day
+{
+	color: #1f2d5c;
+}
+
+/* =========================================================
+   FORM INPUTS
+========================================================= */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select
+{
+	width: calc(100% - 22px);
+	padding: 8px 10px;
+	margin-bottom: 10px;
+	border: 1px solid #bfc2c7;
+	border-radius: 6px;
+	background-color: #fff;
+	font-size: 15px;
+}
+
+label
+{
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+/* =========================================================
+   GRID LAYOUT
+========================================================= */
+.row
+{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.col-half
+{
+	flex: 1;
+	padding-right: 5px;
+}
+
+	.col-half:last-child
+	{
+		padding-right: 0;
+		padding-left: 5px;
+	}
+
+/* =========================================================
+   BUTTONS → class 기반으로 구조 수정
+========================================================= */
+.button,
+.button-half
+{
+	display: block;
+	padding: 12px;
+	margin: 15px 0;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button
+{
+	width: 100%;
+}
+
+.button-half
+{
+	width: 48%;
+}
+
+/* Primary (파란색 기본 버튼) */
+.btn-primary
+{
+	background-color: #3b5fa7;
+}
+
+/* Approve (남색) */
+.btn-approve
+{
+	background-color: #415771;
+	border-color: #415771;
+	color: #ffffff;
+}
+
+/* Reject (회색) */
+.btn-reject
+{
+	background-color: #cfcfcf;
+	color: #333;
+}
+
+	/* Hover */
+	.button:hover,
+	.button-half:hover,
+	.btn-primary:hover,
+	.btn-approve:hover,
+	.btn-reject:hover
+	{
+		filter: brightness(0.95);
+	}
+
+/* =========================================================
+   REQUEST / APPROVED LIST
+========================================================= */
+.card
+{
+	background-color: #fff;
+	padding: 10px 15px;
+	border-radius: 10px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+	margin-bottom: 15px;
+}
+
+.request-item,
+.approved-item
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card .detail
+{
+	margin: 1px 0 0 0;
+}
+
+.card-details
+{
+	width: 100%;
+}
+
+.card-details > p:first-child
+{
+	font-weight: bold;
+}
+
+.card-details > p:not(:first-child)
+{
+	margin-top: 5px;
+	font-size: 0.9em;
+}
+
+.action-button-container
+{
+	flex-shrink: 0;
+	text-align: right;
+}
+
+	.action-button-container .button
+	{
+		width: 100px;
+		padding: 10px 18px;
+	}
+
+/* =========================================================
+   PTO REMAINING CARD
+========================================================= */
+.remaining-pto-card
+{
+	text-align: center;
+}
+
+	.card h2,
+	.remaining-pto-card h2
+	{
+		color: #1f2d5c;
+		border-bottom: 1px solid #ccc;
+		font-size: large;
+		margin-top: 0px;
+		padding: 10px;
+	}
+
+.pto-value
+{
+	font-size: 2em;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+	.pto-value .days
+	{
+		color: #1f2d5c;
+	}
+
+	.pto-value .hours
+	{
+		color: #28a745;
+	}
+
+	.pto-value .label
+	{
+		font-size: 0.6em;
+		margin-left: 3px;
+		color: #555;
+	}
+
+/* =========================================================
+   TAB UI
+========================================================= */
+.tab-container
+{
+	display: flex;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 15px;
+}
+
+.tab-button
+{
+	flex: 1;
+	padding: 10px 0;
+	text-align: center;
+	font-weight: bold;
+	background-color: #f9f9f9;
+	border: none;
+	color: #555;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+	.tab-button:hover
+	{
+		background-color: #e9ecef;
+	}
+
+	.tab-button.active
+	{
+		background-color: white;
+		border-bottom: 3px solid #1f2d5c;
+		color: #1f2d5c;
+	}
+
+.tab-content
+{
+	display: none;
+}
+
+	.tab-content.active
+	{
+		display: block;
+	}
+
+/* =========================================================
+   CALENDAR UI
+========================================================= */
+.calendar-card
+{
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	padding: 20px;
+	width: 360px;
+	margin: 0 auto;
+}
+
+.calendar-header
+{
+	text-align: center;
+	color: #1f2d5c;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+	.calendar-header small
+	{
+		display: block;
+		color: #777;
+		font-size: 0.9em;
+	}
+
+table.calendar
+{
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	text-align: center;
+	font-size: 0.95em;
+}
+
+.calendar th
+{
+	background-color: #415771;
+	color: #fff;
+	padding: 8px 0;
+}
+
+.calendar td
+{
+	padding: 10px 0;
+	border: 1px solid #eee;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.highlight-day
+{
+	background-color: #fff6c4;
+	font-weight: bold;
+	color: #444;
+}
+
+/* Calendar Navigation */
+.month-label,
+.month-nav,
+.month-nav span,
+.month-nav a,
+.calendar-nav,
+.calendar-nav a
+{
+	color: #1f2d5c;
+}
+
+	.month-nav a:hover,
+	.calendar-nav a:hover
+	{
+		color: #16244c;
+	}
+
+.result_row.card
+{
+	display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
